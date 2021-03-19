@@ -31,7 +31,6 @@ def customDrawPCD(pcd):
     vis.add_geometry(pcd) 
 
     # Rendering options
-    # TODO color the pcd:http://www.open3d.org/docs/release/python_api/open3d.visualization.PointColorOption.html 
     opt = vis.get_render_option()
     opt.background_color = np.asarray([0, 0, 0]) # RGB
     opt.point_size = 0.2
@@ -54,6 +53,9 @@ def customDrawPCD(pcd):
 
 # Load the point cloud data
 raw_pcd = o3d.io.read_point_cloud("RawRaw_stat_5.pcd", print_progress = True)
+
+# Paint the point cloud data uniformly
+#raw_pcd = raw_pcd.paint_uniform_color(np.asarray([1, 0, 0]))
 
 # Visualize the point cloud and get the depth image
 depthImage = customDrawPCD(raw_pcd)
